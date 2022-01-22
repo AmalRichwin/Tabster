@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "React Chrome Extension 2",
+  "version": "0.1",
+  "description": "React based Chrome Extension using Google's Manifest v3",
+  "permissions": [],
+  "author": "Richwin",
+  "short_name": "React Extension 2",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "React Chrome Extension 2"
+  }
+}
