@@ -9,7 +9,7 @@ A chrome extension that allows you to pin tabs, go to tab, copy tab url and clos
 Clone the repository and build the extension.
 
 ```
-    git clone repository_url
+    git clone https://github.com/AmalRichwin/Tabmaster.git
     cd tabster
 ```
 
@@ -35,7 +35,7 @@ Click **Load unpacked extension** and select the folder **build** in the **exten
 Clone the respository and run the following command in the terminal:
 
 ```
-    git clone repository_url
+    git clone https://github.com/AmalRichwin/Tabmaster.git
     yarn install
     yarn start
 ```
