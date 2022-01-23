@@ -50,7 +50,6 @@ function App() {
   }
 
   const handleGotoTab = (tab: chrome.tabs.Tab): void => {
-    // chrome.action.``
     chrome.tabs.update(tab.id || -1, {
       active: true,
       highlighted: true,
@@ -71,12 +70,20 @@ function App() {
     }
   }
 
-  // const handleTabPin = () => {}
+  const handleTabPin = (tab: chrome.tabs.Tab): void => {
+    chrome.tabs.update(tab.id || -1, {
+      pinned: !tab.pinned,
+    })
+  }
+
+  const handleCopyUrl = (tab: chrome.tabs.Tab) => {
+    navigator.clipboard.writeText(tab.url || '')
+  }
 
   return (
     <div className="App">
-      <h1 className="text-2xl  font-extrabold text-center text-transparent uppercase bg-clip-text bg-gradient-to-br from-[#51E1ED] to-[#193cdd]">
-        Tabster
+      <h1 className="text-2xl   text-center text-transparent bg-clip-text bg-gradient-to-br from-[#51E1ED] to-[#193cdd] font-mochiy">
+        tabster
       </h1>
 
       <div className="px-4 pt-5 pb-2 sm:p-6 sm:pb-2">
@@ -94,16 +101,18 @@ function App() {
         </div>
       </div>
 
-      <ul className="w-auto overflow-y-auto ">
+      <div className="w-auto overflow-y-auto h-96">
         {searchQuery.length ? (
           filteredtabsList.length ? (
             filteredtabsList.map((tab, idx) => (
               <ListItem
                 key={tab.id}
-                tabName={tab.title}
+                tab={tab}
                 favIconUrl={tab.favIconUrl}
                 onCloseTab={() => handleCloseTabByID(tab.id || -1, idx)}
                 onGotoTab={() => handleGotoTab(tab)}
+                onTabPin={() => handleTabPin(tab)}
+                onCopyUrl={() => handleCopyUrl(tab)}
               />
             ))
           ) : (
@@ -115,22 +124,25 @@ function App() {
           tabsList.map((tab, idx) => (
             <ListItem
               key={tab.id}
-              tabName={tab.title}
+              tab={tab}
               favIconUrl={tab.favIconUrl}
               onCloseTab={() => handleCloseTabByID(tab.id || -1, idx)}
               onGotoTab={() => handleGotoTab(tab)}
+              onTabPin={() => handleTabPin(tab)}
+              onCopyUrl={() => handleCopyUrl(tab)}
             />
           ))
         )}
-      </ul>
-
-      <div className="fixed left-[50%]  transform translate-x-[-50%]   bottom-2">
-        <button
-          onClick={() => handleCloseRestTabs()}
-          className="px-4 py-2 font-semibold text-xs bg-[#271c6e] shadow-[#271c6e] text-white rounded-md shadow-sm"
-        >
-          Close rest tabs
-        </button>
+      </div>
+      <div className="fixed bg-white bottom-2 ">
+        <div className="fixed left-[50%]  transform translate-x-[-50%]   bottom-2">
+          <button
+            onClick={() => handleCloseRestTabs()}
+            className="px-4 py-2 font-semibold text-xs bg-[#271c6e] shadow-[#271c6e] text-white rounded-md shadow-sm"
+          >
+            Close rest tabs
+          </button>
+        </div>
       </div>
     </div>
   )
