@@ -68,7 +68,7 @@ const ListItem: React.FC<IListItemProps> = ({
             <span className="hidden group-hover:inline-block group-hover:ease-in group-hover:duration-300">
               Goto
             </span>{' '}
-            <UpArrowIcon className="inline w-4 h-4 rotate-45" />
+            <UpArrowIcon className="inline w-3 h-3 rotate-45" />
           </button>
         </Tippy>
         <Tippy
@@ -82,7 +82,7 @@ const ListItem: React.FC<IListItemProps> = ({
             className="px-1 py-1 font-semibold font-opensans text-xs  bg-[#ff1e01] shadow-[#ff2727] text-white rounded-md shadow-sm"
             onClick={onCloseTab}
           >
-            <CloseIcon className="w-4 h-4" />
+            <CloseIcon className="w-3 h-3" />
           </button>
         </Tippy>
       </div>

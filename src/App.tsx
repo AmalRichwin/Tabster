@@ -82,7 +82,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-2xl   text-center text-transparent bg-clip-text bg-gradient-to-br from-[#51E1ED] to-[#193cdd] font-mochiy">
+      <h1 className="text-2xl font-mochiy  text-center text-transparent bg-clip-text bg-gradient-to-br from-[#1d4e83] to-[#1f4b7c] ">
         tabster
       </h1>
 
