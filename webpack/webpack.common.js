@@ -4,7 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: {
+    main: path.resolve(__dirname, '..', './src/index.tsx'),
+    content: './src/chromeServices/DOMEvaluator.ts',
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -21,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(?:ico|png|jpg|gif|jpeg)$/i,
@@ -35,7 +38,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),
-    filename: '[name].bundle.js',
+    filename: '[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({

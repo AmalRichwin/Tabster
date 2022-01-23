@@ -7,6 +7,7 @@ module.exports = {
     open: true,
     port: 3080,
   },
+
   devtool: 'cheap-module-source-map',
   plugins: [new ReactRefreshWebpackPlugin()],
 }
