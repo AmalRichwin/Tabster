@@ -39,5 +39,6 @@ Clone the respository and run the following command in the terminal:
     yarn install
     yarn start
 ```
+---
 
 ![tabster](/docs/screenshots/tabster.png 'tabster')
