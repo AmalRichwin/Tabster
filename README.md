@@ -1,6 +1,5 @@
 # **tabster**
-
-![tabster](/docs/screenshots/logo.png 'tabster')
+<img src="/docs/screenshots/logo.png" width="150" height="150">
 
 A chrome extension that allows you to pin tabs, go to tab, copy tab url and close tab.
 
